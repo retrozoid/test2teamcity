@@ -10,19 +10,6 @@ import (
 	"github.com/retrozoid/test2teamcity"
 )
 
-// === RUN   Test_Secret
-// === RUN   Test_Secret/Child
-//     rule_test.go:19: sss
-// --- FAIL: Test_Secret (0.00s)
-//     --- FAIL: Test_Secret/Child (0.00s)
-// === RUN   Test_TaxId
-// --- PASS: Test_TaxId (0.00s)
-// === RUN   Test_Phone
-// --- PASS: Test_Phone (0.00s)
-// === RUN   Test_Email
-// --- PASS: Test_Email (0.00s)
-// FAIL
-
 func main() {
 	var (
 		args   = flag.Args()
