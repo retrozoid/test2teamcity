@@ -107,7 +107,7 @@ func Pipe(in io.Reader, stdout io.Writer) error {
 
 		if isPass || isFail || isSkip {
 			var (
-				sc     = strings.IndexByte(value, ':')
+				sc     = strings.IndexByte(value, ':') + 1
 				e      = strings.LastIndexByte(value, '(')
 				d, err = time.ParseDuration(value[e+1 : max-1])
 			)
