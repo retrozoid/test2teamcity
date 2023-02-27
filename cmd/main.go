@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
+	flag.Parse()
 	var (
 		args   = flag.Args()
 		reader io.ReadCloser
 		err    error
 	)
-	flag.Parse()
 	if flag.NArg() == 0 {
 		reader = os.Stdout
 	} else {
