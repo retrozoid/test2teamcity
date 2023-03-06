@@ -74,15 +74,14 @@ func Pipe(in io.Reader, stdout io.Writer) error {
 	for {
 		line, err := reader.ReadBytes('\n')
 		if err == io.EOF {
-			break
+			return nil
 		}
 		if err != nil {
 			return err
 		}
-		line = bytes.TrimSpace(line)
-		max := len(line)
 
-		value := string(line)
+		value := string(bytes.TrimSpace(line))
+		max := len(value)
 
 		if strings.HasPrefix(value, run) {
 			name = strings.TrimSpace(value[len(run):])
@@ -137,5 +136,4 @@ func Pipe(in io.Reader, stdout io.Writer) error {
 			return err
 		}
 	}
-	return nil
 }

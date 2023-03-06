@@ -21,16 +21,17 @@ func main() {
 		reader = os.Stdout
 	} else {
 		cmd := exec.Command(args[0], args[1:]...)
+		cmd.Stderr = os.Stderr
 		reader, err = cmd.StdoutPipe()
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal("test2teamcity", err)
 		}
 		if err = cmd.Start(); err != nil {
-			log.Fatal(err)
+			log.Fatal("test2teamcity", err)
 		}
 		defer cmd.Wait()
 	}
 	if err = test2teamcity.Pipe(reader, os.Stdout); err != nil {
-		log.Fatal(err)
+		log.Fatal("test2teamcity", err)
 	}
 }
